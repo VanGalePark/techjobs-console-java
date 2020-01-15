@@ -88,7 +88,13 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        
+        for (HashMap<String, String> item : allJobs) {
+            for (String str : item.values()) {
+                if(str.toLowerCase().indexOf(value.toLowerCase()) >= 0 && !jobs.contains(item)) {
+                    jobs.add(item);
+                }
+            }
+        }
 
         return jobs;
     }
